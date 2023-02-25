@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  db:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: ryandellolio/postgres-huge_pages-off
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+
+# test with `docker compose up --build` to test
+# release to latest with docker buildx build --platform linux/amd64,linux/arm64 --push -t ryandellolio/postgres-huge_pages-off .
